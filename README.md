@@ -2,8 +2,6 @@
 
 <img width="1507" height="903" alt="Nexecute-connect-dashboard" src="https://github.com/user-attachments/assets/882bda55-66c0-4866-b1c8-bc7a46b6e014" />
 
-<img width="750" height="861" alt="image" src="https://github.com/user-attachments/assets/51d103b7-ba47-475e-8cc6-88805ce0a1bf" />
-
 > **Project** - ServiceNow and Slack integration platform showcasing advanced API development, OAuth 2.0 flows, and real-time monitoring capabilities.
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -41,6 +39,11 @@ Nexecute Connect is a full-stack integration platform that bridges ServiceNow in
 - **Signature Verification**: HMAC-SHA256 webhook security validation
 - **Event Subscriptions**: Real-time Slack event processing and responses
 - **Enhanced Scopes**: Complete Slack bot token scope implementation
+
+<img width="1507" height="309" alt="nexecute-servicenow-p1" src="https://github.com/user-attachments/assets/d55d9f19-d144-42f5-85e5-cc6e36ff9bfd" />
+
+<img width="750" height="859" alt="nexecute-slackbot" src="https://github.com/user-attachments/assets/e2e41209-54db-4d8f-806b-63bc21d7d1dc" />
+
 
 ## Technical Architecture
 
