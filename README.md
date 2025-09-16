@@ -1,6 +1,6 @@
 # Nexecute Connect - ServiceNow & Slack Integration Platform
 
-> **Project** - Enterprise ServiceNow and Slack integration platform showcasing advanced API development, OAuth 2.0 flows, and real-time monitoring capabilities.
+> **Project** - ServiceNow and Slack integration platform showcasing advanced API development, OAuth 2.0 flows, and real-time monitoring capabilities.
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
@@ -10,7 +10,7 @@
 
 ## Project Overview
 
-Nexecute Connect is a comprehensive full-stack integration platform that bridges ServiceNow incident management with Slack notifications. Built to demonstrate enterprise-grade development practices, this project showcases advanced ServiceNow API integration, OAuth 2.0 authentication flows, and real-time monitoring capabilities.
+Nexecute Connect is a full-stack integration platform that bridges ServiceNow incident management with Slack notifications. This project showcases advanced ServiceNow API integration, OAuth 2.0 authentication flows, and real-time monitoring capabilities.
 
 ## Key Features
 
