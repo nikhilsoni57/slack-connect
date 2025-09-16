@@ -67,6 +67,3 @@ nexecute-backend/docs/internal/PROJECT_STATUS.md
 
 # Exclude Claude configuration
 CLAUDE.md
-
-# Exclude this gitignore file itself
-.gitignore
