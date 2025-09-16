@@ -2,6 +2,8 @@
 
 <img width="1507" height="903" alt="Nexecute-connect-dashboard" src="https://github.com/user-attachments/assets/882bda55-66c0-4866-b1c8-bc7a46b6e014" />
 
+<img width="750" height="861" alt="image" src="https://github.com/user-attachments/assets/51d103b7-ba47-475e-8cc6-88805ce0a1bf" />
+
 > **Project** - ServiceNow and Slack integration platform showcasing advanced API development, OAuth 2.0 flows, and real-time monitoring capabilities.
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
