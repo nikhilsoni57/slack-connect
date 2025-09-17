@@ -119,7 +119,7 @@ class ServiceNowClient {
     }
     
     // If no stored token and database is now connected, try loading again
-    if (!this.storedToken && database.config.isConnected) {
+    if (!this.storedToken && database.getConfig().isConnected) {
       logger.info('🔄 Retrying token loading after database connection established');
       await this.loadTokenFromDatabase();
     }
@@ -490,7 +490,7 @@ class ServiceNowClient {
         };
       }
 
-      const incidents = Array.isArray(response.data.result) ? response.data.result : [response.data.result];
+      const incidents = Array.isArray(response.data.result) ? response.data.result.flat() : [response.data.result];
 
       logger.info(`Retrieved ${incidents.length} incidents from ServiceNow`);
 
@@ -720,7 +720,7 @@ class ServiceNowClient {
       logger.info('🔍 Loading tokens from database for instance:', this.config.instanceUrl);
       
       // Wait for database to be ready
-      if (!database.config.isConnected) {
+      if (!database.getConfig().isConnected) {
         logger.info('⏳ Database not connected yet, skipping token loading...');
         return; // Skip loading for now, will be handled by ensureInitialized()
       }

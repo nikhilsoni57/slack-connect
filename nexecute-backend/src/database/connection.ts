@@ -212,6 +212,13 @@ class Database {
   }
 
   /**
+   * Get database configuration (public accessor)
+   */
+  getConfig() {
+    return this.config;
+  }
+
+  /**
    * Update system health status
    */
   private async upsertSystemHealth(serviceName: string, status: string, errorMessage?: string): Promise<void> {

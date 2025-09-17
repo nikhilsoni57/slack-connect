@@ -104,7 +104,7 @@ export class WebSocketService {
       socket.emit('dashboard-update', {
         type: 'metrics',
         event: 'initial-load',
-        data: metrics.data,
+        data: metrics,
         timestamp: new Date()
       });
 
@@ -113,7 +113,7 @@ export class WebSocketService {
       socket.emit('dashboard-update', {
         type: 'health',
         event: 'initial-load',
-        data: health.data,
+        data: health,
         timestamp: new Date()
       });
 
@@ -291,7 +291,7 @@ export class WebSocketService {
       const update: WebSocketUpdate = {
         type: 'metrics',
         event: 'refresh',
-        data: metrics.data,
+        data: metrics,
         timestamp: new Date()
       };
 
