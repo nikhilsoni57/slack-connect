@@ -59,7 +59,7 @@ app.use(helmet({
 // CORS configuration
 app.use(cors({
   origin: config.NODE_ENV === 'production' 
-    ? ['https://nexecute-connect.com'] 
+    ? ['https://nexecute.app', 'https://www.nexecute.app'] 
     : [config.FRONTEND_URL, 'http://localhost:5173', 'http://127.0.0.1:5173'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],

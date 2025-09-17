@@ -2,18 +2,24 @@
   "version": 2,
   "builds": [
     {
-      "src": "nexecute-backend/src/server.ts",
-      "use": "@vercel/node"
+      "src": "nexecute-backend/package.json",
+      "use": "@vercel/node",
+      "config": {
+        "outputDirectory": "nexecute-backend"
+      }
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "nexecute-backend/src/server.ts"
+      "dest": "nexecute-backend/dist/server.js"
     }
   ],
+  "env": {
+    "NODE_ENV": "production"
+  },
   "functions": {
-    "nexecute-backend/src/server.ts": {
+    "nexecute-backend/dist/server.js": {
       "maxDuration": 30
     }
   }
