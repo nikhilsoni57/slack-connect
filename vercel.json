@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "nexecute-backend/src/server.ts",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "nexecute-backend/src/server.ts"
+    }
+  ],
+  "functions": {
+    "nexecute-backend/src/server.ts": {
+      "maxDuration": 30
+    }
+  }
+}
