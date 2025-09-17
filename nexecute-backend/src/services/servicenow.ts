@@ -126,6 +126,13 @@ class ServiceNowClient {
   }
 
   /**
+   * Get ServiceNow client configuration (public accessor)
+   */
+  getConfig() {
+    return this.config;
+  }
+
+  /**
    * Generate OAuth 2.0 authorization URL
    */
   getOAuthUrl(redirectUri: string): { url: string; state: string } {

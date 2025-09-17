@@ -221,15 +221,15 @@ export class NotificationService {
       }
 
       blocks.push({
-        type: 'section',
+        type: 'section' as const,
         fields
       });
 
       if (incident.description && action === 'created') {
         blocks.push({
-          type: 'section',
+          type: 'section' as const,
           text: {
-            type: 'mrkdwn',
+            type: 'mrkdwn' as const,
             text: `*Description:*\n${incident.description.length > 200 ? incident.description.substring(0, 200) + '...' : incident.description}`
           }
         });
@@ -238,21 +238,21 @@ export class NotificationService {
       // Add action buttons for non-resolved incidents
       if (action !== 'resolved') {
         blocks.push({
-          type: 'actions',
+          type: 'actions' as const,
           elements: [
             {
-              type: 'button',
+              type: 'button' as const,
               text: {
-                type: 'plain_text',
+                type: 'plain_text' as const,
                 text: 'View in ServiceNow'
               },
-              url: `${serviceNowClient.config.instanceUrl}/incident.do?sys_id=${incident.sys_id}`,
+              url: `${serviceNowClient.getConfig().instanceUrl}/incident.do?sys_id=${incident.sys_id}`,
               style: 'primary'
             },
             {
-              type: 'button',
+              type: 'button' as const,
               text: {
-                type: 'plain_text',
+                type: 'plain_text' as const,
                 text: 'Assign to Me'
               },
               action_id: `incident_assign_${incident.sys_id}`,
