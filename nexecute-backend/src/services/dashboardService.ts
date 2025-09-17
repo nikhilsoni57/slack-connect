@@ -361,7 +361,10 @@ export class DashboardService {
           successful_notifications: 0,
           avg_delivery_latency: null,
           active_workspaces: 1,
-          last_incident_time: row.last_incident_time || null
+          last_incident_time: row.last_incident_time || null,
+          p1_incidents_active: 0,
+          sla_compliance_percent: 100,
+          channel_coverage: 1
         };
       } catch (fallbackError) {
         logger.error('Fallback dashboard summary query failed:', fallbackError);
@@ -373,7 +376,10 @@ export class DashboardService {
           successful_notifications: 0,
           avg_delivery_latency: null,
           active_workspaces: 0,
-          last_incident_time: null
+          last_incident_time: null,
+          p1_incidents_active: 0,
+          sla_compliance_percent: 100,
+          channel_coverage: 1
         };
       }
     }
