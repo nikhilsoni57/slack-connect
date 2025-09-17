@@ -1,0 +1,13 @@
+{
+  "name": "nexecute-connect",
+  "version": "1.0.0",
+  "description": "ServiceNow and Slack integration platform",
+  "scripts": {
+    "build": "cd nexecute-backend && npm install && npm run build",
+    "start": "cd nexecute-backend && npm start",
+    "dev": "cd nexecute-backend && npm run dev"
+  },
+  "workspaces": [
+    "nexecute-backend"
+  ]
+}
