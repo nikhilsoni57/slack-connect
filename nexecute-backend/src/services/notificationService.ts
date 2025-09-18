@@ -223,7 +223,7 @@ export class NotificationService {
       blocks.push({
         type: 'section' as const,
         fields
-      });
+      } as any);
 
       if (incident.description && action === 'created') {
         blocks.push({
@@ -259,7 +259,7 @@ export class NotificationService {
               value: incident.sys_id
             }
           ]
-        });
+        } as any);
       }
     }
 
