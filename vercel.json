@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "nexecute-backend/src/server.ts",
+      "src": "nexecute-backend/dist/server.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "nexecute-backend/src/server.ts"
+      "dest": "nexecute-backend/dist/server.js"
     }
   ],
   "env": {
