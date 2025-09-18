@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "start": "node dist/server.js",
-    "build": "tsc --noEmitOnError false && node scripts/copy-env.js",
+    "build": "tsc --noEmitOnError false",
     "vercel-build": "npm run build",
     "typecheck": "tsc --noEmit",
     "test": "echo 'No tests specified'"
