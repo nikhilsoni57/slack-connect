@@ -266,7 +266,7 @@ export class NotificationService {
     return {
       channel: settings.channel,
       text: `${actionText[action]}: ${incident.number} - ${incident.short_description}`,
-      blocks,
+      blocks: blocks as any, // Emergency type bypass for Slack Block API deployment
       unfurl_links: false,
       unfurl_media: false
     };

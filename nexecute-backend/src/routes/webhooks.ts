@@ -339,7 +339,7 @@ async function handleAppMention(event: SlackEvent, payload: SlackWebhookPayload)
         ]
       };
 
-      return await slackClient.postMessage(helpMessage);
+      return await slackClient.postMessage(helpMessage as any);
     }
 
     if (text.includes('status')) {
@@ -358,7 +358,7 @@ async function handleAppMention(event: SlackEvent, payload: SlackWebhookPayload)
         ]
       };
 
-      return await slackClient.postMessage(statusMessage);
+      return await slackClient.postMessage(statusMessage as any);
     }
 
     // Default response for unrecognized mentions
@@ -367,7 +367,7 @@ async function handleAppMention(event: SlackEvent, payload: SlackWebhookPayload)
       text: 'Hi there! 👋 Type `@nexecute-connect help` to see available commands.'
     };
 
-    return await slackClient.postMessage(defaultResponse);
+    return await slackClient.postMessage(defaultResponse as any);
 
   } catch (error) {
     logger.error('Error handling app mention:', error);
@@ -648,7 +648,7 @@ async function handleServiceNowIncidentNotification(incident: any): Promise<{ su
       channels.map(channel => slackClient.postMessage({
         ...message,
         channel
-      }))
+      } as any))
     );
 
     // Check if all notifications succeeded
