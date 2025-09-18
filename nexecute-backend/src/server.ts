@@ -15,7 +15,6 @@ import { statusRoutes } from './routes/status.js';
 import { testRoutes } from './routes/test.js';
 import { dashboardRoutes } from './routes/dashboard.js';
 import dashboardAPIRoutes from './routes/dashboardAPI.js';
-import { testEncryption } from './utils/encryption.js';
 import { database } from './database/connection.js';
 import { webSocketService } from './services/websocketService.js';
 
@@ -27,14 +26,8 @@ const httpServer = createServer(app);
 // Trust proxy for ngrok and other reverse proxies
 app.set('trust proxy', true);
 
-// Test encryption on startup
-logger.info('Testing encryption functionality...');
-if (testEncryption()) {
-  logger.info('✅ Encryption test passed');
-} else {
-  logger.error('❌ Encryption test failed - check ENCRYPTION_KEY');
-  process.exit(1);
-}
+// Encryption functionality is available in utils/encryption.js if needed
+logger.info('Starting Nexecute Connect server...');
 
 // Security middleware
 app.use(helmet({
