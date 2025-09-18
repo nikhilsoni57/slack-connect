@@ -308,11 +308,13 @@ export interface IntegrationStatus {
     authType: 'basic' | 'oauth' | 'none';
     lastTested?: string;
     instanceUrl?: string;
+    error?: string;
   };
   slack: {
     connected: boolean;
     workspaceId?: string;
     botUserId?: string;
     lastTested?: string;
+    error?: string;
   };
 }
