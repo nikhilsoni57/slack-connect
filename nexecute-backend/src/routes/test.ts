@@ -294,7 +294,11 @@ router.get('/integration-status', async (req: Request, res: Response) => {
     // Check Slack status (if bot token is configured)
     let slackStatus = { success: false, message: 'Bot token not configured' };
     try {
-      slackStatus = await slackClient.testConnection();
+      const slackResult = await slackClient.testConnection();
+      slackStatus = {
+        success: slackResult.success,
+        message: slackResult.message || (slackResult.success ? 'Connected' : 'Connection failed')
+      };
     } catch (error) {
       slackStatus = { success: false, message: 'Bot token not configured' };
     }

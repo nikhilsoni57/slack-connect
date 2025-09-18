@@ -89,7 +89,11 @@ router.get('/api/health', async (req: Request, res: Response) => {
     let slackResponseTime = 0;
     
     try {
-      slackHealth = await slackClient.testConnection();
+      const slackResult = await slackClient.testConnection();
+      slackHealth = {
+        success: slackResult.success,
+        message: slackResult.message || (slackResult.success ? 'Connected' : 'Connection failed')
+      };
       slackResponseTime = Date.now() - startSlack;
     } catch (error) {
       slackResponseTime = Date.now() - startSlack;
