@@ -34,25 +34,25 @@ class Database {
     // Serverless-optimized pool configuration
     const isServerless = process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME;
 
-    const poolConfig = {
-      connectionString: config.DATABASE_URL,
+    // Remove sslmode from connection string and handle SSL separately
+    const connectionString = config.DATABASE_URL?.replace(/[?&]sslmode=\w+/, '') || config.DATABASE_URL;
+
+    const poolConfig: any = {
+      connectionString,
       max: isServerless ? 1 : 20, // Serverless: 1 connection, Traditional: 20
       min: 0,  // No minimum connections for serverless
       idleTimeoutMillis: isServerless ? 1000 : 30000, // Serverless: 1s, Traditional: 30s
       connectionTimeoutMillis: 10000, // 10 seconds
       acquireTimeoutMillis: 10000, // 10 seconds to get connection from pool
       allowExitOnIdle: isServerless ? true : false, // Allow exit on idle for serverless
-      // SSL configuration - Supabase requires SSL
-      ssl: config.DATABASE_URL && (config.DATABASE_URL.includes('sslmode=require') || config.DATABASE_URL.includes('supabase'))
-        ? {
-            rejectUnauthorized: false,
-            // Additional SSL options for compatibility
-            checkServerIdentity: () => undefined
-          }
-        : config.NODE_ENV === 'production'
-        ? { rejectUnauthorized: false }
-        : false,
     };
+
+    // Always enable SSL for production/Supabase with permissive settings
+    if (config.DATABASE_URL && (config.NODE_ENV === 'production' || config.DATABASE_URL.includes('supabase'))) {
+      poolConfig.ssl = {
+        rejectUnauthorized: false
+      };
+    }
 
     const pool = new Pool(poolConfig);
 
