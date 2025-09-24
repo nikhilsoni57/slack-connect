@@ -31,14 +31,17 @@ class Database {
   }
 
   private createPool(): Pool {
+    // Serverless-optimized pool configuration
+    const isServerless = process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME;
+
     const poolConfig = {
       connectionString: config.DATABASE_URL,
-      max: 20, // Maximum number of clients in pool
-      min: 5,  // Minimum number of clients in pool
-      idleTimeoutMillis: 30000, // 30 seconds
+      max: isServerless ? 1 : 20, // Serverless: 1 connection, Traditional: 20
+      min: 0,  // No minimum connections for serverless
+      idleTimeoutMillis: isServerless ? 1000 : 30000, // Serverless: 1s, Traditional: 30s
       connectionTimeoutMillis: 10000, // 10 seconds
       acquireTimeoutMillis: 10000, // 10 seconds to get connection from pool
-      allowExitOnIdle: false,
+      allowExitOnIdle: isServerless ? true : false, // Allow exit on idle for serverless
       // Enable SSL for production
       ssl: config.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
     };
@@ -91,17 +94,19 @@ class Database {
     } catch (error) {
       this.config.isConnected = false;
       logger.error(`❌ Database connection failed (attempt ${this.config.connectionAttempts}):`, error);
-      
-      // Retry connection with exponential backoff
-      if (this.config.connectionAttempts < 5) {
+
+      // In serverless, don't retry - connections will be attempted on each request
+      const isServerless = process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME;
+
+      if (!isServerless && this.config.connectionAttempts < 5) {
+        // Only retry in traditional server environments
         const delay = Math.min(1000 * Math.pow(2, this.config.connectionAttempts), 30000);
         logger.info(`🔄 Retrying connection in ${delay}ms...`);
         setTimeout(() => this.initializeConnection(), delay);
-      } else {
+      } else if (!isServerless) {
         logger.error('💥 Max connection attempts reached. Database unavailable.');
-        if (config.NODE_ENV === 'production') {
-          process.exit(1);
-        }
+      } else {
+        logger.warn('⚠️ Database connection failed in serverless environment. Will retry on next request.');
       }
     }
   }
@@ -142,11 +147,21 @@ class Database {
     let client: PoolClient | null = null;
 
     try {
-      if (!this.config.isConnected) {
+      // In serverless, try to connect even if isConnected is false
+      const isServerless = process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME;
+
+      if (!this.config.isConnected && !isServerless) {
         throw new Error('Database not connected. Health check failed.');
       }
 
       client = await this.config.pool.connect();
+
+      // Mark as connected if we successfully got a client
+      if (!this.config.isConnected) {
+        this.config.isConnected = true;
+        logger.info('✅ Database connection established');
+      }
+
       const result = await client.query<T>(text, params);
       
       const duration = Date.now() - start;
