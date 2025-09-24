@@ -42,8 +42,10 @@ class Database {
       connectionTimeoutMillis: 10000, // 10 seconds
       acquireTimeoutMillis: 10000, // 10 seconds to get connection from pool
       allowExitOnIdle: isServerless ? true : false, // Allow exit on idle for serverless
-      // Enable SSL for production
-      ssl: config.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
+      // SSL configuration - required for Supabase and most cloud providers
+      ssl: config.DATABASE_URL?.includes('supabase') || config.DATABASE_URL?.includes('amazonaws') || config.NODE_ENV === 'production'
+        ? { rejectUnauthorized: false }
+        : false,
     };
 
     const pool = new Pool(poolConfig);
