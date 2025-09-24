@@ -4,6 +4,7 @@ import { config } from '../config/environment.js';
 import { slackClient } from '../services/slackClient.js';
 import { serviceNowClient } from '../services/servicenow.js';
 import { logger } from '../utils/logger.js';
+import { database } from '../database/connection.js';
 import axios from 'axios';
 
 const router = Router();
@@ -281,20 +282,20 @@ async function checkDatabaseHealth(): Promise<ServiceHealthStatus> {
   const startTime = Date.now();
 
   try {
-    // This would be implemented with actual database client
-    // For now, just return a placeholder
+    // Test actual database connection
+    const result = await database.query('SELECT NOW() as current_time, version() as postgres_version');
     const responseTime = Date.now() - startTime;
-    
+
     return {
-      status: 'disconnected',
-      message: 'Database client not implemented',
+      status: 'connected',
+      message: `PostgreSQL connected: ${result.rows[0].postgres_version.split(' ')[1]}`,
       responseTime,
       lastChecked: new Date().toISOString()
     };
 
   } catch (error: any) {
     const responseTime = Date.now() - startTime;
-    
+
     return {
       status: 'error',
       message: `Database connection failed: ${error.message}`,
