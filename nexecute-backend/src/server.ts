@@ -4,6 +4,8 @@ import cors from 'cors';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import { createServer } from 'http';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import { config } from './config/environment.js';
 import { logger } from './utils/logger.js';
 import { errorHandler } from './middleware/errorHandler.js';
@@ -120,8 +122,19 @@ app.use('/auth/', authLimiter);
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// Serve static files (logos, assets)
-app.use('/assets', express.static('public/assets'));
+// Get __dirname equivalent for ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Serve static files (logos, assets) - works for both dev (src/) and prod (dist/)
+// In dev: src/server.ts -> ../public/assets (up one level from src/)
+// In prod: dist/server.js -> public/assets (copied to dist/ during build)
+const publicPath = __filename.includes('/dist/')
+  ? path.join(__dirname, 'public/assets')    // Production: dist/public/assets
+  : path.join(__dirname, '../public/assets'); // Development: src/../public/assets
+
+app.use('/assets', express.static(publicPath));
+logger.info(`📁 Serving static assets from: ${publicPath} (running from ${__filename.includes('/dist/') ? 'dist' : 'src'})`);
 
 // Request logging middleware
 app.use((req, res, next) => {
