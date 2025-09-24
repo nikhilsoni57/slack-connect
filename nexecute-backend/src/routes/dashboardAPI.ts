@@ -780,11 +780,11 @@ async function getIncidentTrends(startDate: Date, endDate: Date, period: string)
     }
 
     const result = await database.query(`
-      SELECT 
+      SELECT
         ${groupBy} as time_bucket,
-        COUNT(CASE WHEN i.priority = '1' THEN 1 END) as p1_incidents,
-        COUNT(CASE WHEN i.priority = '2' THEN 1 END) as p2_incidents,
-        COUNT(CASE WHEN i.priority IN ('3','4','5') THEN 1 END) as other_incidents,
+        COUNT(CASE WHEN i.priority IN ('1', 'P1') THEN 1 END) as p1_incidents,
+        COUNT(CASE WHEN i.priority IN ('2', 'P2') THEN 1 END) as p2_incidents,
+        COUNT(CASE WHEN i.priority IN ('3','4','5','P3','P4','P5') THEN 1 END) as other_incidents,
         AVG(CASE WHEN sn.delivery_latency_ms IS NOT NULL THEN sn.delivery_latency_ms / 60000.0 END) as avg_resolution_time_minutes
       FROM incidents i
       LEFT JOIN slack_notifications sn ON i.id = sn.incident_id
