@@ -169,7 +169,7 @@ app.use('/dashboard', dashboardRoutes);
 // Test endpoints (for development and integration testing)
 app.use('/test', testRoutes);
 
-// Root endpoint
+// Root endpoint - deployment trigger
 app.get('/', (req, res) => {
   res.json({
     name: 'Nexecute Connect API',
