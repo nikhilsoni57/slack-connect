@@ -11,7 +11,7 @@
 
 ## Project Overview
 
-Nexecute Connect is a full-stack integration platform that bridges ServiceNow incident management with Slack notifications. This project showcases advanced ServiceNow API integration, OAuth 2.0 authentication flows, and real-time monitoring capabilities.
+Integration platform that bridges ServiceNow incident management with Slack notifications. This project showcases advanced ServiceNow API integration, OAuth 2.0 authentication flows, and real-time monitoring capabilities.
 
 ## Key Features
 
@@ -87,8 +87,8 @@ DevOps:    Docker • PM2 • Nginx • Health Monitoring
 
 1. **Clone and Install**
    ```bash
-   git clone https://github.com/your-username/nexecute-connect.git
-   cd nexecute-connect/nexecute-backend
+   git clone https://github.com/your-username/slack-connect.git
+   cd slack-connect/nexecute-backend
    npm install
    ```
 
@@ -101,7 +101,7 @@ DevOps:    Docker • PM2 • Nginx • Health Monitoring
 3. **Database Setup**
    ```bash
    # Create PostgreSQL database
-   createdb nexecute_connect
+   createdb slack_connect
    
    # Run migrations (if available)
    npm run migrate
@@ -137,9 +137,9 @@ DevOps:    Docker • PM2 • Nginx • Health Monitoring
 ## Project Structure
 
 ```
-nexecute-connect/
+slack-connect/
 ├── README.md                           # This file (project overview)
-├── nexecute-backend/                   # Main application
+├── backend/                            # Main application
 │   ├── src/
 │   │   ├── routes/                     # API endpoints & dashboard
 │   │   ├── services/                   # Business logic & integrations
@@ -162,7 +162,7 @@ nexecute-connect/
 
 ### Docker Deployment
 ```bash
-cd nexecute-backend
+cd backend
 docker-compose up -d
 ```
 
