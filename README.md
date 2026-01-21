@@ -44,11 +44,11 @@ Integration platform that bridges ServiceNow incident management with Slack noti
 
 ### Core Technology Stack
 ```
-Frontend:  React • TypeScript • Chart.js • WebSocket Client
-Backend:   Node.js • Express.js • TypeScript • Socket.IO
-Database:  PostgreSQL • Materialized Views • Connection Pooling
-Security:  OAuth 2.0 • JWT • bcryptjs • Helmet.js
-DevOps:    Docker • PM2 • Nginx • Health Monitoring
+Frontend:  React
+Backend:   Node.js
+Database:  PostgreSQL
+Security:  OAuth 2.0 • JWT
+DevOps:    Docker
 ```
 
 ### System Architecture
@@ -160,12 +160,6 @@ slack-connect/
 ```bash
 cd backend
 docker-compose up -d
-```
-
-### PM2 Process Manager
-```bash
-npm run build
-pm2 start ecosystem.config.js --env production
 ```
 
 *For detailed deployment instructions, see [nexecute-backend/docs/internal/DEPLOYMENT.md](nexecute-backend/docs/internal/DEPLOYMENT.md)*
