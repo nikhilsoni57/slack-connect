@@ -1,4 +1,4 @@
-# Nexecute Connect - ServiceNow & Slack Integration Platform
+# ServiceNow & Slack Integration
 
 <img width="1507" height="903" alt="Nexecute-connect-dashboard" src="https://github.com/user-attachments/assets/882bda55-66c0-4866-b1c8-bc7a46b6e014" />
 
