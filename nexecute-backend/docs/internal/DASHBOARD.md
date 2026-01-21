@@ -217,18 +217,3 @@ curl -w "@curl-format.txt" -s http://localhost:3001/dashboard/api/metrics
 # Check database health
 curl -s http://localhost:3001/health/detailed
 ```
-
-## Future Enhancements
-
-### Planned Features
-- Historical data export
-- Custom alert thresholds
-- Multi-tenant workspace support
-- Advanced reporting dashboard
-- Mobile-responsive design improvements
-
-### Performance Optimizations
-- Redis caching layer
-- Database query optimization
-- WebSocket connection scaling
-- CDN integration for static assets
