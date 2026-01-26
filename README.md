@@ -1,8 +1,5 @@
 # ServiceNow & Slack Integration
 
-[![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
-
 ## Project Overview
 
 Integration platform that bridges ServiceNow incident management with Slack notifications. This project showcases advanced ServiceNow API integration, OAuth 2.0 authentication flows, and real-time monitoring capabilities.
