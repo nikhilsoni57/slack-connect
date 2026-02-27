@@ -7,28 +7,28 @@ Integration platform that bridges ServiceNow incident management with Slack noti
 ## Key Features
 
 ### Enterprise Authentication & Security
-- **OAuth 2.0 Implementation**: Complete ServiceNow OAuth flow with refresh token handling
-- **JWT Session Management**: Secure authentication with configurable session policies
-- **AES-256-GCM Encryption**: Enterprise grade encryption for sensitive data storage
-- **Multi-tier Security**: Rate limiting, input validation, CORS, and security headers
+- OAuth 2.0 Implementation: Complete ServiceNow OAuth flow with refresh token handling
+- JWT Session Management: Secure authentication with configurable session policies
+- AES-256-GCM Encryption: Enterprise grade encryption for sensitive data storage
+- Multi-tier Security: Rate limiting, input validation, CORS, and security headers
 
 ### Real-time Monitoring Dashboard
-- **Live Metrics**: Real time incident tracking with WebSocket-powered updates
-- **Advanced Analytics**: Chart.js visualizations for incident response time trends
-- **System Health Monitoring**: Multi service connectivity and performance tracking
-- **SLA Compliance**: Automated monitoring with configurable thresholds
+- Live Metrics: Real time incident tracking with WebSocket-powered updates
+- Advanced Analytics: Chart.js visualizations for incident response time trends
+- System Health Monitoring: Multi service connectivity and performance tracking
+- SLA Compliance: Automated monitoring with configurable thresholds
 
 ### ServiceNow Integration
-- **Complete API Integration**: Full incident lifecycle management (CRUD operations)
-- **Advanced Query Building**: Dynamic GlideRecord-style filtering and search
-- **Webhook Processing**: Real time incident event handling with comprehensive validation
-- **Error Handling**: Robust retry logic and comprehensive error management
+- Complete API Integration: Full incident lifecycle management (CRUD operations)
+- Advanced Query Building: Dynamic GlideRecord-style filtering and search
+- Webhook Processing: Real time incident event handling with comprehensive validation
+- Error Handling: Robust retry logic and comprehensive error management
 
 ### Slack Integration
-- **Rich Bot Implementation**: Interactive notifications with buttons and slash commands
-- **Signature Verification**: HMAC-SHA256 webhook security validation
-- **Event Subscriptions**: Real time Slack event processing and responses
-- **Enhanced Scopes**: Complete Slack bot token scope implementation
+- Rich Bot Implementation: Interactive notifications with buttons and slash commands
+- Signature Verification: HMAC-SHA256 webhook security validation
+- Event Subscriptions: Real time Slack event processing and responses
+- Enhanced Scopes: Complete Slack bot token scope implementation
 
 ## Technical Architecture
 
@@ -71,20 +71,20 @@ DevOps:    Docker
 
 ### Installation & Setup
 
-1. **Clone and Install**
+1. Clone and Install
    ```bash
    git clone https://github.com/your-username/slack-connect.git
    cd slack-connect/nexecute-backend
    npm install
    ```
 
-2. **Environment Configuration**
+2. Environment Configuration
    ```bash
    cp .env.example .env
    # Configure your ServiceNow, Slack, and database credentials
    ```
 
-3. **Database Setup**
+3. Database Setup
    ```bash
    # Create PostgreSQL database
    createdb slack_connect
@@ -93,15 +93,15 @@ DevOps:    Docker
    npm run migrate
    ```
 
-4. **Start Development Server**
+4. Start Development Server
    ```bash
    npm run dev
    ```
 
-5. **Access Application**
-   - **API Server**: http://localhost:3001
-   - **Dashboard**: http://localhost:3001/dashboard
-   - **API Health**: http://localhost:3001/health
+5. Access Application
+   - API Server: http://localhost:3001
+   - Dashboard: http://localhost:3001/dashboard
+   - API Health: http://localhost:3001/health
 
 ## API Documentation
 
@@ -117,8 +117,6 @@ DevOps:    Docker
 - `GET /dashboard/api/health` - System health status
 - `GET /dashboard/api/metrics` - Live metrics and analytics
 - `GET /dashboard/api/analytics` - Advanced incident analytics
-
-*For complete API documentation, see [nexecute-backend/docs/API.md](nexecute-backend/docs/API.md)*
 
 ## Project Structure
 
@@ -151,17 +149,4 @@ slack-connect/
 cd backend
 docker-compose up -d
 ```
-
-*For detailed deployment instructions, see [nexecute-backend/docs/internal/DEPLOYMENT.md](nexecute-backend/docs/internal/DEPLOYMENT.md)*
-
-## Documentation
-
-- **[Architecture Guide](nexecute-backend/docs/ARCHITECTURE.md)** - System design and technical architecture
-- **[API Reference](nexecute-backend/docs/API.md)** - Complete endpoint documentation
-- **[Internal Documentation](nexecute-backend/docs/internal/)** - Detailed implementation guides
-
-## Contact
-
-**Nikhil Soni**  
-🔗 [LinkedIn](https://www.linkedin.com/in/nikhilsoni57/)  
 
