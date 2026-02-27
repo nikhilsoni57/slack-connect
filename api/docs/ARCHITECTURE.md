@@ -1,4 +1,4 @@
-# Nexecute Connect Architecture
+# Slack Connect Architecture
 
 > Technical architecture documentation for the ServiceNow-Slack integration platform
 
@@ -6,7 +6,7 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    Nexecute Connect Architecture            │
+│                    Slack Connect Architecture            │
 ├─────────────────────────────────────────────────────────────┤
 │                                                             │
 │  Frontend (Dashboard)           Backend (Node.js/Express)   │

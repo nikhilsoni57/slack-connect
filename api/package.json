@@ -1,8 +1,8 @@
 {
-  "name": "nexecute-backend",
+  "name": "Slack-backend",
   "version": "1.0.0",
   "type": "module",
-  "description": "Backend API for Nexecute Connect ServiceNow and Slack integration",
+  "description": "Backend API for Slack Connect ServiceNow and Slack integration",
   "main": "dist/server.js",
   "scripts": {
     "dev": "tsx watch src/server.ts",
@@ -49,6 +49,6 @@
     "integration",
     "api"
   ],
-  "author": "Nexecute Connect",
+  "author": "Slack Connect",
   "license": "ISC"
 }

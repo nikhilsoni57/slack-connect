@@ -1,10 +1,10 @@
-# Nexecute Connect API Documentation
+# Slack Connect API Documentation
 
 > Professional API documentation for the ServiceNow-Slack integration platform
 
 ## Getting Started
 
-The Nexecute Connect API provides enterprise-grade endpoints for ServiceNow integration, real-time monitoring, and webhook processing. All endpoints include comprehensive error handling, input validation, and performance optimization.
+The Slack Connect API provides enterprise-grade endpoints for ServiceNow integration, real-time monitoring, and webhook processing. All endpoints include comprehensive error handling, input validation, and performance optimization.
 
 ### Base URL
 ```

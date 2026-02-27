@@ -74,7 +74,7 @@ DevOps:    Docker
 1. Clone and Install
    ```bash
    git clone https://github.com/your-username/slack-connect.git
-   cd slack-connect/nexecute-backend
+   cd slack-connect/Slack-backend
    npm install
    ```
 

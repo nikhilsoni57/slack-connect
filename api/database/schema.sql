@@ -1,4 +1,4 @@
--- Nexecute Connect Production Database Schema
+-- Slack Connect Production Database Schema
 -- Designed for real-time metrics, multi-workspace support, and 30-second SLA tracking
 
 -- Enable UUID extension if available
@@ -286,8 +286,8 @@ INSERT INTO slack_workspaces (
 ) VALUES (
     'demo_customer',
     'T09DXAEM550',
-    'Nexecute Workspace',
-    'nexecute',
+    'Slack Workspace',
+    'Slack',
     'encrypted_bot_token',
     'A09DRQCPMKP'
 );
@@ -304,11 +304,11 @@ FROM slack_workspaces w,
     (VALUES 
         ('P0', 'C09EAQ585G9', '#critical-ops', 'P0 Critical incidents to ops team'),
         ('P1', 'C09EAQ585G9', '#critical-ops', 'P1 High priority to ops team'),
-        ('P1', 'C09DXAEM54N', '#nexecute', 'P1 High priority to main channel'),
-        ('P2', 'C09DXAEM54N', '#nexecute', 'P2 Medium priority incidents'),
-        ('P3', 'C09DXAEM54N', '#nexecute', 'P3 Standard incidents'),
-        ('P4', 'C09DXAEM54N', '#nexecute', 'P4 Low priority incidents'),
-        ('P5', 'C09DXAEM54N', '#nexecute', 'P5 Planning incidents')
+        ('P1', 'C09DXAEM54N', '#Slack', 'P1 High priority to main channel'),
+        ('P2', 'C09DXAEM54N', '#Slack', 'P2 Medium priority incidents'),
+        ('P3', 'C09DXAEM54N', '#Slack', 'P3 Standard incidents'),
+        ('P4', 'C09DXAEM54N', '#Slack', 'P4 Low priority incidents'),
+        ('P5', 'C09DXAEM54N', '#Slack', 'P5 Planning incidents')
     ) AS rules(priority, channel_id, channel_name, description)
 WHERE w.team_id = 'T09DXAEM550';
 
@@ -346,4 +346,4 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-COMMENT ON DATABASE nexecute_connect IS 'Nexecute Connect production database for ServiceNow-Slack integration with real-time metrics and multi-workspace support';
+COMMENT ON DATABASE Slack_connect IS 'Slack Connect production database for ServiceNow-Slack integration with real-time metrics and multi-workspace support';
