@@ -30,9 +30,6 @@ Integration platform that bridges ServiceNow incident management with Slack noti
 - **Event Subscriptions**: Real time Slack event processing and responses
 - **Enhanced Scopes**: Complete Slack bot token scope implementation
 
-<img width="1507" height="309" alt="nexecute-servicenow-p1" src="https://github.com/user-attachments/assets/d55d9f19-d144-42f5-85e5-cc6e36ff9bfd" />
-
-
 ## Technical Architecture
 
 ### Core Technology Stack
