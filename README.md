@@ -32,8 +32,6 @@ Integration platform that bridges ServiceNow incident management with Slack noti
 
 <img width="1507" height="309" alt="nexecute-servicenow-p1" src="https://github.com/user-attachments/assets/d55d9f19-d144-42f5-85e5-cc6e36ff9bfd" />
 
-<img width="750" height="859" alt="nexecute-slackbot" src="https://github.com/user-attachments/assets/e2e41209-54db-4d8f-806b-63bc21d7d1dc" />
-
 
 ## Technical Architecture
 
